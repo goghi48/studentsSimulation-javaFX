@@ -1,0 +1,10 @@
+boySpawnDelay = 2
+girlSpawnDelay = 2
+boyLifeTime = 15
+girlLifeTime = 15
+boyProbability = 1.0
+girlProbability = 1.0
+boyAIPriority = 5
+girlAIPriority = 5
+isTimerVisible = true
+showInfoCheckbox = false

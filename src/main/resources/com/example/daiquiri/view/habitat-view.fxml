@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.CheckMenuItem?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.TextFlow?>
+
+<AnchorPane fx:id="rootPane" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.daiquiri.Controller">
+   <children>
+      <AnchorPane fx:id="simulationPane" layoutX="200.0" layoutY="25.0" minHeight="575.0" minWidth="600.0" prefHeight="575.0" prefWidth="600.0" style="-fx-background-color: #f0f0f0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0" />
+      <VBox cache="true" layoutY="25.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="${simulationPane.height}" prefWidth="200.0" style="-fx-background-color: white;">
+         <children>
+            <VBox prefHeight="50.0" prefWidth="200.0">
+               <children>
+                  <Label prefHeight="25.0" prefWidth="92.5" text="Simulation">
+                     <VBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox prefHeight="25.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="startButton" defaultButton="true" focusTraversable="false" mnemonicParsing="false" onAction="#handleStartButton" prefHeight="25.0" prefWidth="92.5" text="Start">
+                           <HBox.margin>
+                              <Insets left="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="stopButton" cancelButton="true" disable="true" focusTraversable="false" mnemonicParsing="false" onAction="#handleStopButton" prefHeight="25.0" prefWidth="92.5" text="Stop">
+                           <HBox.margin>
+                              <Insets left="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="50.0" prefWidth="200.0">
+               <children>
+                  <HBox prefHeight="25.0" prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="25.0" prefWidth="92.5" text="Boy AI">
+                           <HBox.margin>
+                              <Insets left="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label prefHeight="25.0" prefWidth="92.5" text="Girl AI">
+                           <HBox.margin>
+                              <Insets left="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="25.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="boyAIButton" focusTraversable="false" mnemonicParsing="false" onAction="#handleBoyAIButton" prefHeight="25.0" prefWidth="92.5" text="Start">
+                           <HBox.margin>
+                              <Insets left="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="girlAIButton" focusTraversable="false" mnemonicParsing="false" onAction="#handleGirlAIButton" prefHeight="25.0" prefWidth="92.5" text="Start">
+                           <HBox.margin>
+                              <Insets left="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="50.0" prefWidth="200.0">
+               <children>
+                  <HBox prefHeight="25.0" prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="25.0" prefWidth="92.5" text="Students">
+                           <HBox.margin>
+                              <Insets left="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="25.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="saveStudentsButton" focusTraversable="false" mnemonicParsing="false" onAction="#handleSaveStudents" prefHeight="25.0" prefWidth="92.5" text="Save">
+                           <HBox.margin>
+                              <Insets left="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="loadStudentsButton" focusTraversable="false" mnemonicParsing="false" onAction="#handleLoadStudents" prefHeight="25.0" prefWidth="92.5" text="Load">
+                           <HBox.margin>
+                              <Insets left="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Button fx:id="currentObjectsButton" focusTraversable="false" mnemonicParsing="false" onAction="#handleShowCurrentObjects" prefHeight="25.0" prefWidth="190.0" text="Current objects">
+               <VBox.margin>
+                  <Insets left="5.0" top="5.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="consoleButton" focusTraversable="false" mnemonicParsing="false" onAction="#handleOpenConsole" prefHeight="25.0" prefWidth="190.0" text="Console">
+               <VBox.margin>
+                  <Insets left="5.0" top="5.0" />
+               </VBox.margin>
+            </Button>
+            <VBox prefHeight="50.0" prefWidth="200.0">
+               <children>
+                  <HBox prefHeight="25.0" prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="25.0" prefWidth="92.5" text="Boy spawn delay">
+                           <HBox.margin>
+                              <Insets left="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label prefHeight="25.0" prefWidth="92.5" text="Girl spawn delay">
+                           <HBox.margin>
+                              <Insets left="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="25.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="boySpawnDelayField" focusTraversable="false" prefHeight="25.0" prefWidth="92.5" text="5">
+                           <HBox.margin>
+                              <Insets left="5.0" top="5.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <TextField fx:id="girlSpawnDelayField" focusTraversable="false" prefHeight="25.0" prefWidth="92.5" text="5">
+                           <HBox.margin>
+                              <Insets left="5.0" top="5.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="50.0" prefWidth="200.0">
+               <children>
+                  <HBox prefHeight="25.0" prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="25.0" prefWidth="190.0" text="Boy AI priority">
+                           <HBox.margin>
+                              <Insets left="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label prefHeight="25.0" prefWidth="190.0" text="Girl AI priority">
+                           <HBox.margin>
+                              <Insets left="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="25.0" prefWidth="200.0">
+                     <children>
+                        <ComboBox fx:id="boyAIPriorityComboBox" focusTraversable="false" onAction="#handleSetBoyAIPriority" prefHeight="25.0" prefWidth="92.5">
+                           <HBox.margin>
+                              <Insets left="5.0" top="5.0" />
+                           </HBox.margin>
+                        </ComboBox>
+                        <ComboBox fx:id="girlAIPriorityComboBox" focusTraversable="false" onAction="#handleSetGirlAIPriority" prefHeight="25.0" prefWidth="92.5">
+                           <HBox.margin>
+                              <Insets left="5.0" top="5.0" />
+                           </HBox.margin>
+                        </ComboBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="50.0" prefWidth="200.0">
+               <children>
+                  <HBox prefHeight="25.0" prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="25.0" prefWidth="190.0" text="Boy spawn probability">
+                           <HBox.margin>
+                              <Insets left="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="25.0" prefWidth="200.0">
+                     <children>
+                        <ComboBox fx:id="boyProbabilityComboBox" focusTraversable="false" onAction="#handleSetBoyProbability" prefHeight="25.0" prefWidth="190.0">
+                           <HBox.margin>
+                              <Insets left="5.0" top="5.0" />
+                           </HBox.margin>
+                        </ComboBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="50.0" prefWidth="200.0">
+               <children>
+                  <HBox prefHeight="25.0" prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="25.0" prefWidth="92.5" text="Boy lifetime">
+                           <HBox.margin>
+                              <Insets left="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label prefHeight="25.0" prefWidth="92.5" text="Girl lifetime">
+                           <HBox.margin>
+                              <Insets left="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="25.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="boyLifetimeField" focusTraversable="false" prefHeight="25.0" prefWidth="92.5" text="15">
+                           <HBox.margin>
+                              <Insets left="5.0" top="5.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <TextField fx:id="girlLifetimeField" focusTraversable="false" prefHeight="25.0" prefWidth="92.5" text="15">
+                           <HBox.margin>
+                              <Insets left="5.0" top="5.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="50.0" prefWidth="200.0">
+               <children>
+                  <HBox prefHeight="25.0" prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="25.0" prefWidth="190.0" text="Girl spawn probability">
+                           <HBox.margin>
+                              <Insets left="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="25.0" prefWidth="200.0">
+                     <children>
+                        <Slider fx:id="girlProbabilitySlider" focusTraversable="false" majorTickUnit="10.0" minorTickCount="10" prefHeight="25.0" prefWidth="190.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="50.0">
+                           <HBox.margin>
+                              <Insets left="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Slider>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <HBox prefHeight="25.0" prefWidth="100.0">
+               <children>
+                  <RadioButton fx:id="showTimerRadioButton" focusTraversable="false" mnemonicParsing="false" onAction="#handleShowTimerButton" prefHeight="25.0" prefWidth="92.5" selected="true" text="Show timer">
+                     <HBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </HBox.margin>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="timerToggleGroup" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="hideTimerRadioButton" focusTraversable="false" mnemonicParsing="false" onAction="#handleHideTimerButton" prefHeight="25.0" prefWidth="92.5" text="Hide timer" toggleGroup="$timerToggleGroup">
+                     <HBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </HBox.margin>
+                  </RadioButton>
+               </children>
+            </HBox>
+            <CheckBox fx:id="showInfoCheckBox" focusTraversable="false" mnemonicParsing="false" onAction="#handleShowInfoCheckBox" prefHeight="25.0" prefWidth="200.0" text="Show info">
+               <VBox.margin>
+                  <Insets left="5.0" top="5.0" />
+               </VBox.margin>
+            </CheckBox>
+            <VBox prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Label text="Sync simulation start/stop w/">
+                     <VBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <ComboBox fx:id="connectComboBox" focusTraversable="false" prefHeight="25.0" prefWidth="190.0">
+                     <VBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </VBox.margin>
+                  </ComboBox>
+                  <Label text="Online:">
+                     <VBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextFlow fx:id="connectedClients" prefHeight="200.0" prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" />
+                     </VBox.margin>
+                  </TextFlow>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+      <Label fx:id="timeLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="200.0" layoutY="25.0" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: #f0f0f0;" text="Time label" textAlignment="CENTER" />
+      <HBox prefHeight="25.0" prefWidth="${rootPane.width}">
+         <children>
+            <MenuBar prefWidth="${rootPane.width}">
+              <menus>
+                <Menu mnemonicParsing="false" text="Simulation">
+                  <items>
+                    <MenuItem fx:id="menuStartButton" mnemonicParsing="false" onAction="#handleStartButton" text="Start" />
+                        <MenuItem fx:id="menuStopButton" mnemonicParsing="false" onAction="#handleStopButton" text="Stop" visible="false" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Info">
+                     <items>
+                        <CheckMenuItem fx:id="menuShowTimerCheckBox" mnemonicParsing="false" onAction="#handleToggleTimerVisability" selected="true" text="Show timer" />
+                        <CheckMenuItem fx:id="menuShowInfoCheckBox" mnemonicParsing="false" onAction="#handleMenuShowInfoCheckBox" text="Show info" />
+                     </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </children>
+      </HBox>
+      <AnchorPane fx:id="zaslonkaPane" prefHeight="${rootPane.height}" prefWidth="${rootPane.width}" style="-fx-background-color: white;">
+         <children>
+            <VBox fx:id="loginBox" alignment="CENTER" prefHeight="${rootPane.height}" prefWidth="${rootPane.width}">
+               <children>
+                  <TextField fx:id="usernameTextField" maxHeight="25.0" maxWidth="200.0" prefHeight="25.0" prefWidth="200.0" promptText="username">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin></TextField>
+                  <TextField fx:id="ipTextField" maxHeight="25.0" maxWidth="200.0" promptText="ip">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin></TextField>
+                  <TextField fx:id="portTextField" maxHeight="25.0" maxWidth="200.0" promptText="port">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin></TextField>
+                  <Label fx:id="errorText" text="Ошибка подключения к серверу" textFill="RED" visible="false" />
+                  <Button mnemonicParsing="false" onAction="#handleConnectToServer" text="Connect">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin></Button>
+               </children>
+            </VBox>
+         </children></AnchorPane>
+   </children>
+</AnchorPane>
